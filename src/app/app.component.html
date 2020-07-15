@@ -328,65 +328,62 @@
     <h1>Let's get started by typing a query</h1>
   </div>
   <input [(ngModel)]="searchInput" (keyup.enter)="search()" type="text" style="width:550px; border:1px solid #ccc; height:30px; padding-left:10px; margin-top:20px; border-radius:20px;outline:none;">
-<!--  <button (click)="search()">Search</button>-->
-
+  
+  <!-- Grupul pentru tab-uri -->
   <mat-tab-group *ngIf="dataSourceGoogle.length>0" style="width:100%;">
+    <!-- Tab-ul cu rezultate Google -->
     <mat-tab label="Google results">
+      <!-- Tabelul cu rezultate de la Google -->
       <mat-table [dataSource]="dataSourceGoogle" class="mat-elevation-z8">
-        <!-- Position Column -->
-
-        <!-- Name Column -->
+        <!-- Coloana Title -->
         <ng-container matColumnDef="title">
           <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
           <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
         </ng-container>
+        <!-- Coloana Summary -->
         <ng-container matColumnDef="summary">
           <mat-header-cell *matHeaderCellDef> Summary </mat-header-cell>
           <mat-cell *matCellDef="let element"> {{element.summary}} </mat-cell>
         </ng-container>
-        <!-- Name Column -->
+        <!-- Coloana URL -->
         <ng-container matColumnDef="url">
           <mat-header-cell *matHeaderCellDef> URL </mat-header-cell>
           <mat-cell *matCellDef="let element"> {{element.url}} </mat-cell>
         </ng-container>
-
-        <!-- Weight Column -->
+        <!-- Coloana Fuzzy relevance -->
         <ng-container matColumnDef="fuzzyRelevance">
           <mat-header-cell *matHeaderCellDef> Fuzzy relevance </mat-header-cell>
           <mat-cell *matCellDef="let element"> {{element.fuzzyRelevance}} </mat-cell>
         </ng-container>
-
+        <!-- Header pentru tabel -->
         <mat-header-row *matHeaderRowDef="displayedColumnsGoogle"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumnsGoogle;"></mat-row>
       </mat-table>
-
-
-
-
     </mat-tab>
-    <mat-tab label="Duckduck go results">   <mat-table [dataSource]="dataSourceDDGo" class="mat-elevation-z8">
-      <!-- Position Column -->
+
+    <!-- Tab-ul cu rezultate Duckduck go -->
+    <mat-tab label="Duckduck go results">   
+       <!-- Tabelul cu rezultate de la Duckduck go -->
+      <mat-table [dataSource]="dataSourceDDGo" class="mat-elevation-z8">
+       <!-- Coloana Text -->
       <ng-container matColumnDef="text">
         <mat-header-cell *matHeaderCellDef> Text </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.text}} </mat-cell>
       </ng-container>
-      <!-- Name Column -->
+      <!-- Coloana URL -->
       <ng-container matColumnDef="url">
         <mat-header-cell *matHeaderCellDef> URL </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.url}} </mat-cell>
       </ng-container>
-
-      <!-- Weight Column -->
+       <!-- Coloana Fuzzy relevance -->
       <ng-container matColumnDef="fuzzyRelevance">
         <mat-header-cell *matHeaderCellDef> Fuzzy relevance </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.fuzzyRelevance}} </mat-cell>
       </ng-container>
-
-
+      <!-- Header pentru tabel -->
       <mat-header-row *matHeaderRowDef="displayedColumnsDDGo"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumnsDDGo;"></mat-row>
     </mat-table> </mat-tab>
-    <!--    <mat-tab label="Third"> Content 3 </mat-tab>-->
   </mat-tab-group>
 
   <svg id="clouds" alt="Gray Clouds Background" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">
@@ -394,15 +391,6 @@
   </svg>
 
 </div>
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
 
 
 <router-outlet></router-outlet>
